@@ -1,3 +1,5 @@
+// ! collabrate with GERA
+
 import React, { useState } from 'react'; // Importing React and useState for managing component state
 import CountryInput from './components/CountryInput/CountryInput'; // Importing the CountryInput component
 import CapitalDisplay from './components/CapitalDisplay/CapitalDisplay'; // Importing the CapitalDisplay component
