@@ -6,7 +6,7 @@ A simple web application that allows users to enter a country name and retrieve 
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Setup](#setup)
+- [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [API Endpoints](#api-endpoints)
@@ -27,16 +27,14 @@ A simple web application that allows users to enter a country name and retrieve 
 - **Frontend**: React, React-Bootstrap
 - **Backend**: Flask, Flask-CORS for handling CORS issues
 - **Database**: PostgreSQL
-- **Environment Management**: Miniconda (optional but recommended)
 
-## Setup
+## Setup Instructions
 
 ### Prerequisites
 
 - **Node.js** and **npm** (for frontend dependencies)
 - **Python 3** and **pip** (for backend dependencies)
 - **PostgreSQL** (for database)
-- **Miniconda** (optional, for environment management)
 
 ### 1. Clone the Repository
 
@@ -53,11 +51,11 @@ cd capitalCity
    cd backend
    ```
 
-2. Create a virtual environment and activate it (recommended with Miniconda):
+2. Create a virtual environment and activate it (optional but recommended):
 
    ```bash
-   conda create -n capital_project_env python=3.8
-   conda activate capital_project_env
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    ```
 
 3. Install the required Python packages:
@@ -69,7 +67,15 @@ cd capitalCity
 4. Set up PostgreSQL:
 
    - Create a PostgreSQL database named `country_db`.
-   - Import your `country_capitals` table with country and capital city data.
+   - Add a table named `country_capitals` with the necessary fields (`country_name` and `capital_city`). You can use this SQL command to create the table:
+     ```sql
+     CREATE TABLE country_capitals (
+         id SERIAL PRIMARY KEY,
+         country_name VARCHAR(100),
+         capital_city VARCHAR(100)
+     );
+     ```
+   - Populate the table with some country-capital data if needed.
 
 5. Run the Flask server:
 
