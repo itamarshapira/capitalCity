@@ -1,5 +1,6 @@
 import React, { useState } from "react"; // Importing React and useState for managing the input state
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap for styling
+import { Container, Row, Col, Form, Button, InputGroup } from "react-bootstrap"; // Importing necessary React-Bootstrap components
 
 const CountryInput = ({ fetchCapital }) => {
   // State to hold the user's input (country name)
@@ -19,22 +20,37 @@ const CountryInput = ({ fetchCapital }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="my-3">
-      <div className="input-group">
-        <input
-          type="text"
-          className="form-control" // Bootstrap class for styling the input
-          placeholder="Enter country name"
-          value={country}
-          onChange={handleInputChange} // Updates the state on each keystroke
-        />
-        <button type="submit" className="btn btn-primary">
+    <Container className="my-3">
+      {" "}
+      {/* Bootstrap container for centered layout */}
+      <Row className="justify-content-center">
+        {" "}
+        {/* Centers the form horizontally */}
+        <Col lg={4} md={6} sm={8}>
           {" "}
-          {/* Bootstrap styling for button */}
-          Search
-        </button>
-      </div>
-    </form>
+          {/* Responsive width for different screen sizes */}
+          <Form onSubmit={handleSubmit}>
+            {" "}
+            {/* Form with submit handler */}
+            <InputGroup>
+              {" "}
+              {/* Bootstrap InputGroup to keep input and button aligned */}
+              <Form.Control
+                type="text"
+                placeholder="Enter country name"
+                value={country}
+                onChange={handleInputChange} // Updates the state on each keystroke
+              />
+              <Button type="submit" variant="primary">
+                {" "}
+                {/* Bootstrap button with primary styling */}
+                Search
+              </Button>
+            </InputGroup>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
