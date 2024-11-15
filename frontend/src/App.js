@@ -10,7 +10,7 @@ const App = () => {
   const [result, setResult] = useState(null);
 
   // Function to fetch the capital city from the backend
-  const fetchCapital = async (country) => {
+  const fetchCapital = async (country) => { //! NOTICE : this func pass as a props to CountryInput component ! 
     try {
       const response = await fetch(`http://127.0.0.1:5000/get-capital?country=${country}`);
       const data = await response.json();
