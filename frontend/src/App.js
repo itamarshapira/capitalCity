@@ -21,19 +21,19 @@ const App = () => {
   };
 
   return (
-    <div className="app-background">
+   <div className="app-background">
+      {/* Main title for the app */}
       <h1 className="text-center">Country Capital Lookup</h1>
-      {/* Passing fetchCapital to CountryInput */}
+      
+      {/* Passing the fetchCapital function to CountryInput to allow it to trigger the API request */}
       <CountryInput fetchCapital={fetchCapital} /> 
-      {/* Displaying the result */}
+
+      {/* Conditionally rendering CapitalDisplay to show the result only if there's data in the state */}
       {result && (
-        <div className="mt-4">
-          {result.error ? (
-            <p className="text-danger">{result.error}</p>
-          ) : (
-            <p>Capital: {result.capital}</p>
-          )}
-        </div>
+        <CapitalDisplay 
+          capital={result.capital} // Passing the capital from result (if available)
+          error={result.error} // Passing the error from result (if available)
+        />
       )}
     </div>
   );
