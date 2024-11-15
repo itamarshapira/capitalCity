@@ -1,6 +1,7 @@
 # IMPORTS: Import necessary classes and functions from Flask
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS  # Import CORS 
+#! pip install flask-cors : we made that istallantion to avoid cors problem !
 
 import psycopg2 # Import psycopg2 to connect with PostgreSQL
 
